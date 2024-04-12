@@ -11,3 +11,11 @@ RUN geth init /tmp/genesis.json \
     && rm -f /tmp/password
 
 ENTRYPOINT ["geth"]
+
+FROM node:18-alpine AS indexer
+WORKDIR /app
+COPY package*.json .
+COPY . .
+RUN npm install
+RUN npm run build
+CMD ["npm run", "start"]

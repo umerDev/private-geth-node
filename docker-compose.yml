@@ -33,6 +33,7 @@ services:
       --http.addr="0.0.0.0"
       --http.api="eth,web3,net,admin,personal"
       --http.corsdomain="*"
+      --http.vhosts="*"
       --ws
       --ws.addr=0.0.0.0
       --graphql
@@ -65,16 +66,20 @@ services:
     networks:
       priv-eth-net:
 
-  postgres:
-    image: postgres:14-alpine
-    ports:
-      - 5432:5432
+  indexer:
+    build:
+      context: .
+      target: indexer
     volumes:
-      - ~/apps/postgres:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=umer
-      - POSTGRES_USER=umer
-      - POSTGRES_DB=indexer
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - 4000:4000
+    command: npm run start
+    depends_on:
+      - geth-rpc-endpoint
+    networks:
+      priv-eth-net:
 
 networks:
   priv-eth-net:
