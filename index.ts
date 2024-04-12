@@ -1,5 +1,8 @@
-const world = "world";
+import {getTokenBalancePerWallet} from './src/indexer';
 
-export function hello(who: string = world): string {
-  return `Hello ${who}! `;
-}
+(async () => {
+  const balances = await getTokenBalancePerWallet();
+  console.log(balances);
+})().catch(e => {
+  console.error(`error occured: ${e}`);
+});
