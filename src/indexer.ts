@@ -2,7 +2,7 @@ import {Web3} from 'web3';
 import {LoadWallets} from './loadWallets';
 import {getBalance} from './balanceOf';
 
-let tokenAddress = '0x0000000000000000000000000000000000001111';
+const tokenAddress = '0x0000000000000000000000000000000000001111';
 
 const httpProvider = new Web3.providers.HttpProvider(
   'http://geth-rpc-endpoint:8545'
@@ -71,7 +71,7 @@ export const getWallets = () => {
   const users = getUserAndWallets();
   const addresses = users
     .map(addresses => {
-      let address = addresses[1];
+      const address = addresses[1];
       return address;
     })
     .flat();
@@ -80,7 +80,6 @@ export const getWallets = () => {
 
 const getUserAndWallets = () => {
   const wallets = LoadWallets();
-
   const entries = Object.entries(wallets);
   const values = Object.values(entries);
   return values;
