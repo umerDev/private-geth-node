@@ -1,6 +1,6 @@
-import {ContractAbi} from 'web3';
+import {AbiFragment} from 'web3';
 
-export const ERC20ABI: ContractAbi = [
+const ERC20ABI = [
   {
     constant: true,
     inputs: [],
@@ -159,3 +159,10 @@ export const ERC20ABI: ContractAbi = [
     type: 'event',
   },
 ];
+
+export const getERC20ABIOfInterest = (abiName: string): AbiFragment[] => {
+  const arr = [];
+  const find = Object.values(ERC20ABI).find(entry => entry.name === abiName);
+  if (find) arr.push(find);
+  return arr;
+};

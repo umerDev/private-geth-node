@@ -3,10 +3,8 @@ import {
   getWallets,
   totalTokenBalancePerUser,
 } from './src/indexer';
-
 (async () => {
   const wallets = getWallets();
-
   const totalBalancePerUser = await totalTokenBalancePerUser();
   const totalBalancePerWallet = await getTokenBalancePerWallet(wallets);
   console.log('----- Printing totalBalancePerWallet -----\n ');
