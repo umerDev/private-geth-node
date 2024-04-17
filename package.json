@@ -2,6 +2,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "npx ts-node index.ts",
+    "test": "npx jest",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
