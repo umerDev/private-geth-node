@@ -1,8 +1,8 @@
 import {Web3} from 'web3';
-import {LoadWallets} from './loadWallets';
-import {getBalance} from './balanceOf';
+import {LoadWallets} from './wallet/loadWallets';
+import {getBalance} from './contract/balanceOf';
 
-const tokenAddress = '0x0000000000000000000000000000000000001111';
+export const tokenAddress = '0x0000000000000000000000000000000000001111';
 
 const httpProvider = new Web3.providers.HttpProvider(
   'http://geth-rpc-endpoint:8545'
@@ -17,7 +17,7 @@ interface TotalValuePerUser {
 export const totalTokenBalancePerUser = async () => {
   // The total token balance for each user in addresses.json. Format: <user name>: <amount> <symbol>
 
-  const totalBalancePerUser: TotalValuePerUser[] = [{user: '', amount: ''}];
+  const totalBalancePerUser: TotalValuePerUser[] = [];
   let currentUser = '';
   let balancerPerWallet: string[] = [];
 
@@ -50,7 +50,7 @@ export const totalTokenBalancePerUser = async () => {
     }
   }
 
-  return totalBalancePerUser.filter(i => i.user !== '');
+  return totalBalancePerUser;
 };
 
 const createTokenBalance = async (address: string) => {

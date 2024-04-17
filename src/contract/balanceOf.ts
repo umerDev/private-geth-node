@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import {getERC20ABIOfInterest} from './abi/ERC20';
+import {getERC20ABIOfInterest} from '../abi/ERC20';
 
 export const getBalance = async (
   web3Client: Web3,
