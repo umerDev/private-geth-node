@@ -3,6 +3,7 @@ import {IIndexer, TotalValuePerUser} from './IIndexer';
 import Web3 from 'web3';
 import {tokenAddress} from '../abi/shared';
 import {Wallets} from '../wallet/loadWallets';
+import * as BN from 'bn.js';
 
 export default class Indexer implements IIndexer {
   private web3Client: Web3;
@@ -11,10 +12,19 @@ export default class Indexer implements IIndexer {
     this.web3Client = web3Client;
   }
 
+  calcTotal = (balancerPerWallet: BN[]) => {
+    let total = new BN(0);
+
+    for (let i = 0; i < balancerPerWallet.length; i++) {
+      total = new BN(balancerPerWallet[i]).add(total);
+    }
+    return total;
+  };
+
   totalTokenBalancePerUser = async (wallets: Wallets) => {
     const totalBalancePerUser: TotalValuePerUser[] = [];
     let currentUser = '';
-    let balancerPerWallet: string[] = [];
+    let balancerPerWallet: BN[] = [];
 
     const userAndWalletsArr = Object.entries(wallets).flat();
     for (let i = 0; i < userAndWalletsArr.length; i++) {
@@ -31,10 +41,9 @@ export default class Indexer implements IIndexer {
             balancerPerWallet.push(balance);
           }
         }
-        const totalBalance = balancerPerWallet.reduce(
-          (partialSum, a) => partialSum + Number(a),
-          0
-        );
+
+        const totalBalance = this.calcTotal(balancerPerWallet);
+
         totalBalancePerUser.push({
           user: currentUser,
           amount: `${totalBalance} ETH`,
@@ -50,7 +59,7 @@ export default class Indexer implements IIndexer {
 
   createTokenBalance = async (address: string) => {
     const amount = await getBalance(this.web3Client, tokenAddress, address);
-    return `${address}: ${amount} ETH`;
+    return `${address}: ${amount?.toString()} ETH`;
   };
 
   getTokenBalancePerWallet = async (wallets: string[]) => {

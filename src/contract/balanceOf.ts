@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import {getERC20ABIOfInterest} from '../abi/ERC20';
+import {BN} from 'bn.js';
 
 export const getBalance = async (
   web3Client: Web3,
@@ -13,5 +14,5 @@ export const getBalance = async (
 
   const resultInEther = web3Client.utils.fromWei(Number(result), 'ether');
 
-  return parseFloat(resultInEther).toFixed(4);
+  return new BN(resultInEther);
 };
