@@ -1,4 +1,4 @@
-import BN from 'bn.js';
+import * as BN from 'bn.js';
 import Web3 from 'web3';
 import { tokenAddress } from '../abi/shared';
 import { getBalance } from '../contract/balanceOf';
