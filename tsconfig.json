@@ -3,7 +3,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "build",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["es2019", "dom"]
   },
   "include": ["src/**/*.ts", "test/**/*.ts"]
 }

@@ -12,19 +12,8 @@ export const loadWallets = () => {
 };
 
 export const getWallets = () => {
-  const users = getUserAndWallets();
-  const addresses = users
-    .map(addresses => {
-      const address = addresses[1];
-      return address;
-    })
-    .flat();
-  return addresses;
-};
-
-const getUserAndWallets = () => {
   const wallets = loadWallets();
-  const entries = Object.entries(wallets);
-  const values = Object.values(entries);
-  return values;
+  // wallets is an object: { [name: string]: string[] }
+  // We want to return all addresses as a flat array
+  return Object.values(wallets).flat();
 };
