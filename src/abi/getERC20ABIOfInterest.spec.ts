@@ -1,4 +1,4 @@
-import { getERC20ABIOfInterest } from './ERC20';
+import { getERC20ABIOfInterest } from './getERC20ABIOfInterest';
 
 describe('ERC20', () => {
   it('should get balanceOf erc20 abi', () => {

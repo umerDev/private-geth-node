@@ -1,6 +1,6 @@
 import { BN } from 'bn.js';
 import Web3 from 'web3';
-import { getERC20ABIOfInterest } from '../abi/ERC20';
+import { getERC20ABIOfInterest } from '../abi/getERC20ABIOfInterest';
 
 export const getBalance = async (web3Client: Web3, tokenAddress: string, walletAddress: string) => {
   try {
