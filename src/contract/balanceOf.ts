@@ -10,9 +10,10 @@ export const getBalance = async (
   const balanceOfAbi = getERC20ABIOfInterest('balanceOf');
   const contract = new web3Client.eth.Contract(balanceOfAbi, tokenAddress);
   const result = await contract.methods.balanceOf(walletAddress).call();
-  if (!result) return;
 
-  const resultInEther = web3Client.utils.fromWei(Number(result), 'ether');
+  if (!result || Array.isArray(result)) return;
+
+  const resultInEther = web3Client.utils.fromWei(result, 'ether');
 
   return new BN(resultInEther);
 };
