@@ -1,9 +1,9 @@
-import {getBalance} from '../contract/balanceOf';
-import {IIndexer, TotalValuePerUser} from './IIndexer';
-import Web3 from 'web3';
-import {tokenAddress} from '../abi/shared';
-import {Wallets} from '../wallet/loadWallets';
 import * as BN from 'bn.js';
+import Web3 from 'web3';
+import { tokenAddress } from '../abi/shared';
+import { getBalance } from '../contract/balanceOf';
+import { Wallets } from '../wallet/loadWallets';
+import { IIndexer, TotalValuePerUser } from './IIndexer';
 
 export default class Indexer implements IIndexer {
   private web3Client: Web3;
@@ -32,11 +32,7 @@ export default class Indexer implements IIndexer {
 
       if (Array.isArray(userOrWallet)) {
         for (let u = 0; u < userOrWallet.length; u++) {
-          const balance = await getBalance(
-            this.web3Client,
-            tokenAddress,
-            userOrWallet[u]
-          );
+          const balance = await getBalance(this.web3Client, tokenAddress, userOrWallet[u]);
           if (balance) {
             balancerPerWallet.push(balance);
           }

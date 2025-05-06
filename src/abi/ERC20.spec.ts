@@ -1,4 +1,4 @@
-import {getERC20ABIOfInterest} from './ERC20';
+import { getERC20ABIOfInterest } from './ERC20';
 
 describe('ERC20', () => {
   it('should get balanceOf erc20 abi', () => {
@@ -6,9 +6,9 @@ describe('ERC20', () => {
     const balanceOfAbi = [
       {
         constant: true,
-        inputs: [{name: '', type: 'address'}],
+        inputs: [{ name: '', type: 'address' }],
         name: 'balanceOf',
-        outputs: [{name: '', type: 'uint256'}],
+        outputs: [{ name: '', type: 'uint256' }],
         payable: false,
         stateMutability: 'view',
         type: 'function',
@@ -27,9 +27,9 @@ describe('ERC20', () => {
     const burnAbi = [
       {
         constant: false,
-        inputs: [{name: '_value', type: 'uint256'}],
+        inputs: [{ name: '_value', type: 'uint256' }],
         name: 'burn',
-        outputs: [{name: 'success', type: 'bool'}],
+        outputs: [{ name: 'success', type: 'bool' }],
         payable: false,
         stateMutability: 'nonpayable',
         type: 'function',

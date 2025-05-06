@@ -1,11 +1,11 @@
-import {AbiFragment} from 'web3';
+import { AbiFragment } from 'web3';
 
 const ERC20ABI = [
   {
     constant: true,
     inputs: [],
     name: 'name',
-    outputs: [{name: '', type: 'string'}],
+    outputs: [{ name: '', type: 'string' }],
     payable: false,
     stateMutability: 'view',
     type: 'function',
@@ -13,11 +13,11 @@ const ERC20ABI = [
   {
     constant: false,
     inputs: [
-      {name: '_spender', type: 'address'},
-      {name: '_value', type: 'uint256'},
+      { name: '_spender', type: 'address' },
+      { name: '_value', type: 'uint256' },
     ],
     name: 'approve',
-    outputs: [{name: 'success', type: 'bool'}],
+    outputs: [{ name: 'success', type: 'bool' }],
     payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
@@ -26,7 +26,7 @@ const ERC20ABI = [
     constant: true,
     inputs: [],
     name: 'totalSupply',
-    outputs: [{name: '', type: 'uint256'}],
+    outputs: [{ name: '', type: 'uint256' }],
     payable: false,
     stateMutability: 'view',
     type: 'function',
@@ -34,12 +34,12 @@ const ERC20ABI = [
   {
     constant: false,
     inputs: [
-      {name: '_from', type: 'address'},
-      {name: '_to', type: 'address'},
-      {name: '_value', type: 'uint256'},
+      { name: '_from', type: 'address' },
+      { name: '_to', type: 'address' },
+      { name: '_value', type: 'uint256' },
     ],
     name: 'transferFrom',
-    outputs: [{name: 'success', type: 'bool'}],
+    outputs: [{ name: 'success', type: 'bool' }],
     payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
@@ -48,25 +48,25 @@ const ERC20ABI = [
     constant: true,
     inputs: [],
     name: 'decimals',
-    outputs: [{name: '', type: 'uint8'}],
+    outputs: [{ name: '', type: 'uint8' }],
     payable: false,
     stateMutability: 'view',
     type: 'function',
   },
   {
     constant: false,
-    inputs: [{name: '_value', type: 'uint256'}],
+    inputs: [{ name: '_value', type: 'uint256' }],
     name: 'burn',
-    outputs: [{name: 'success', type: 'bool'}],
+    outputs: [{ name: 'success', type: 'bool' }],
     payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
     constant: true,
-    inputs: [{name: '', type: 'address'}],
+    inputs: [{ name: '', type: 'address' }],
     name: 'balanceOf',
-    outputs: [{name: '', type: 'uint256'}],
+    outputs: [{ name: '', type: 'uint256' }],
     payable: false,
     stateMutability: 'view',
     type: 'function',
@@ -74,11 +74,11 @@ const ERC20ABI = [
   {
     constant: false,
     inputs: [
-      {name: '_from', type: 'address'},
-      {name: '_value', type: 'uint256'},
+      { name: '_from', type: 'address' },
+      { name: '_value', type: 'uint256' },
     ],
     name: 'burnFrom',
-    outputs: [{name: 'success', type: 'bool'}],
+    outputs: [{ name: 'success', type: 'bool' }],
     payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
@@ -87,7 +87,7 @@ const ERC20ABI = [
     constant: true,
     inputs: [],
     name: 'symbol',
-    outputs: [{name: '', type: 'string'}],
+    outputs: [{ name: '', type: 'string' }],
     payable: false,
     stateMutability: 'view',
     type: 'function',
@@ -95,8 +95,8 @@ const ERC20ABI = [
   {
     constant: false,
     inputs: [
-      {name: '_to', type: 'address'},
-      {name: '_value', type: 'uint256'},
+      { name: '_to', type: 'address' },
+      { name: '_value', type: 'uint256' },
     ],
     name: 'transfer',
     outputs: [],
@@ -107,12 +107,12 @@ const ERC20ABI = [
   {
     constant: false,
     inputs: [
-      {name: '_spender', type: 'address'},
-      {name: '_value', type: 'uint256'},
-      {name: '_extraData', type: 'bytes'},
+      { name: '_spender', type: 'address' },
+      { name: '_value', type: 'uint256' },
+      { name: '_extraData', type: 'bytes' },
     ],
     name: 'approveAndCall',
-    outputs: [{name: 'success', type: 'bool'}],
+    outputs: [{ name: 'success', type: 'bool' }],
     payable: false,
     stateMutability: 'nonpayable',
     type: 'function',
@@ -120,20 +120,20 @@ const ERC20ABI = [
   {
     constant: true,
     inputs: [
-      {name: '', type: 'address'},
-      {name: '', type: 'address'},
+      { name: '', type: 'address' },
+      { name: '', type: 'address' },
     ],
     name: 'allowance',
-    outputs: [{name: '', type: 'uint256'}],
+    outputs: [{ name: '', type: 'uint256' }],
     payable: false,
     stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
-      {name: 'initialSupply', type: 'uint256'},
-      {name: 'tokenName', type: 'string'},
-      {name: 'tokenSymbol', type: 'string'},
+      { name: 'initialSupply', type: 'uint256' },
+      { name: 'tokenName', type: 'string' },
+      { name: 'tokenSymbol', type: 'string' },
     ],
     payable: false,
     stateMutability: 'nonpayable',
@@ -142,9 +142,9 @@ const ERC20ABI = [
   {
     anonymous: false,
     inputs: [
-      {indexed: true, name: 'from', type: 'address'},
-      {indexed: true, name: 'to', type: 'address'},
-      {indexed: false, name: 'value', type: 'uint256'},
+      { indexed: true, name: 'from', type: 'address' },
+      { indexed: true, name: 'to', type: 'address' },
+      { indexed: false, name: 'value', type: 'uint256' },
     ],
     name: 'Transfer',
     type: 'event',
@@ -152,8 +152,8 @@ const ERC20ABI = [
   {
     anonymous: false,
     inputs: [
-      {indexed: true, name: 'from', type: 'address'},
-      {indexed: false, name: 'value', type: 'uint256'},
+      { indexed: true, name: 'from', type: 'address' },
+      { indexed: false, name: 'value', type: 'uint256' },
     ],
     name: 'Burn',
     type: 'event',
@@ -162,7 +162,7 @@ const ERC20ABI = [
 
 export const getERC20ABIOfInterest = (abiName: string): AbiFragment[] => {
   const arr = [];
-  const find = Object.values(ERC20ABI).find(entry => entry.name === abiName);
+  const find = Object.values(ERC20ABI).find((entry) => entry.name === abiName);
   if (find) arr.push(find);
   return arr;
 };

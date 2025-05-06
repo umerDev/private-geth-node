@@ -1,4 +1,4 @@
-import {Wallets} from '../wallet/loadWallets';
+import { Wallets } from '../wallet/loadWallets';
 
 export interface TotalValuePerUser {
   user: string;

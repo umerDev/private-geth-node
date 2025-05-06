@@ -5,9 +5,7 @@ export interface Wallets {
 }
 
 export const loadWallets = () => {
-  const wallets: Wallets = JSON.parse(
-    fs.readFileSync('addresses.json', 'utf-8')
-  );
+  const wallets: Wallets = JSON.parse(fs.readFileSync('addresses.json', 'utf-8'));
   return wallets;
 };
 
